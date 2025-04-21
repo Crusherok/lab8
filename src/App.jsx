@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./index.css";
+import "./App.css";
 
 const ReminderApp = () => {
   const [tasks, setTasks] = useState([]);
