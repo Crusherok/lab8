@@ -1,27 +1,30 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5; /* A slightly softer background */
+  font-family: 'Nunito', sans-serif; /* A more modern and friendly font */
+  background-color: #e9ecef; /* An even softer, warmer background */
   margin: 0;
-  display: flex; /* Enable flexbox for centering */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px; /* Add some padding around the body for smaller screens */
+  box-sizing: border-box; /* Ensure padding doesn't affect full viewport height */
 }
 
 .container {
-  max-width: 600px; /* Slightly reduced max-width for a cleaner look */
-  background-color: #fff; /* Pure white for contrast */
-  padding: 30px; /* Increased padding for more spacing */
-  border-radius: 16px; /* More rounded corners */
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  max-width: 550px; /* Slightly narrower for better focus */
+  background-color: #fff;
+  padding: 40px; /* More generous padding */
+  border-radius: 20px; /* Even more rounded */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18); /* Deeper, softer shadow */
 }
 
 h1 {
-  font-size: 32px; /* Slightly larger heading */
-  font-weight: 700; /* Bold heading */
-  margin-bottom: 24px;
-  color: #2d3748; /* Darker text color */
-  text-align: center; /* Center the heading */
+  font-size: 36px; /* Slightly larger and more prominent */
+  font-weight: 800; /* Even bolder */
+  margin-bottom: 30px;
+  color: #2c3e50; /* A rich, dark blue-gray */
+  text-align: center;
+  letter-spacing: -0.5px; /* Slightly tighter letter spacing */
 }
 
 form input,
@@ -29,112 +32,120 @@ form textarea,
 form button {
   display: block;
   width: 100%;
-  margin-bottom: 16px; /* Increased margin */
-  padding: 12px 16px; /* Slightly larger padding */
+  margin-bottom: 20px; /* Increased spacing */
+  padding: 14px 18px; /* More comfortable padding */
   font-size: 16px;
-  border-radius: 10px; /* More rounded input fields */
-  border: 1px solid #cbd5e0; /* Lighter border */
+  border-radius: 12px; /* Even more rounded */
+  border: 1px solid #bdc3c7; /* A lighter, classic border */
   box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 form input:focus,
 form textarea:focus {
   outline: none;
-  border-color: #63b3ed; /* Highlight on focus */
-  box-shadow: 0 0 0 2px rgba(99, 179, 237, 0.3); /* Subtle focus ring */
+  border-color: #3498db; /* A brighter focus color */
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* More noticeable focus ring */
 }
 
 form button {
-  background-color: #4a5568; /* Darker button color */
+  background-color: #3498db; /* A vibrant blue */
   color: white;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out; /* Smoother transition */
+  font-weight: 600; /* Semi-bold button text */
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out; /* Add transform for a subtle press effect */
 }
 
 form button:hover {
-  background-color: #2d3748; /* Darker hover state */
+  background-color: #2980b9; /* Darker shade on hover */
+  transform: scale(1.02); /* Subtle scale up on hover */
 }
 
 .filters {
-  margin-bottom: 20px; /* Space below filters */
-  text-align: center; /* Center the filter buttons */
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .filters button {
-  margin: 0 8px; /* Adjust spacing around filter buttons */
-  padding: 10px 20px; /* Slightly larger padding */
-  border: 1px solid #e2e8f0; /* Add a border */
-  border-radius: 10px;
-  background-color: #edf2f7; /* Lighter background */
-  color: #4a5568;
+  margin: 0 10px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  background-color: #ecf0f1; /* Very light gray */
+  color: #34495e; /* Darker text */
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .filters button:hover {
-  background-color: #d1d5db;
-  border-color: #d1d5db;
-  color: #2d3748;
+  background-color: #bdc3c7; /* Slightly darker on hover */
+  color: #2c3e50;
+  transform: scale(1.05); /* Subtle scale up on hover */
 }
 
 .filters button.active {
-  background-color: #4a5568;
+  background-color: #34495e; /* Darker active color */
   color: white;
-  border-color: #4a5568;
 }
 
 .task-list {
-  margin-top: 20px; /* Space above the task list */
+  margin-top: 25px;
 }
 
 .task-item {
-  background-color: #fff; /* White background for task items */
-  border: 1px solid #e2e8f0;
-  padding: 20px; /* Increased padding */
-  border-radius: 12px;
-  margin-bottom: 16px;
+  background-color: #fff;
+  border: 1px solid #dce4e9; /* Even lighter border */
+  padding: 22px; /* More padding */
+  border-radius: 14px; /* More rounded */
+  margin-bottom: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for task items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  transition: transform 0.1s ease-in-out; /* Add transition for a subtle effect on hover */
+}
+
+.task-item:hover {
+  transform: translateY(-2px); /* Subtle lift on hover */
 }
 
 .task-item.completed {
-  background-color: #f0fff4; /* Light green for completed tasks */
+  background-color: #e6ffe9; /* Very light green */
   text-decoration: line-through;
-  color: #a0aec0; /* Muted text color for completed tasks */
+  color: #95a5a6; /* Muted text */
 }
 
 .task-info h3 {
-  margin: 0 0 6px 0; /* Added margin below the title */
-  font-size: 18px;
+  margin: 0 0 8px 0;
+  font-size: 20px; /* Slightly larger title */
   font-weight: 600;
-  color: #2d3748;
+  color: #2c3e50;
 }
 
 .task-info p {
   margin: 0;
   font-size: 14px;
-  color: #718096;
+  color: #7f8c8d; /* A slightly different gray */
 }
 
 .task-actions button {
-  background-color: #38a169; /* Green for action buttons */
+  background-color: #27ae60; /* A brighter green */
   color: white;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  font-size: 14px; /* Slightly smaller font */
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .task-actions button:hover {
-  background-color: #2f855a;
+  background-color: #219653; /* Darker green */
+  transform: scale(1.05);
 }
 
 .task-actions button + button {
-  margin-left: 8px; /* Space between action buttons */
+  margin-left: 10px;
 }
