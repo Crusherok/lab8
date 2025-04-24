@@ -1,179 +1,278 @@
-/* Base styles with a unique color scheme */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f7f3f9;
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding: 20px;
-  color: #2d3748;
+  padding: 0;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+}
+
+/* Main container - perfectly centered */
 .container {
-  max-width: 650px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(147, 112, 219, 0.15);
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 
+              0 10px 20px rgba(0, 0, 0, 0.08),
+              0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* Distinctive header */
+.header {
+  background: #3a86ff;
+  color: white;
+  padding: 25px;
+  position: relative;
   overflow: hidden;
 }
 
-/* Header with unique gradient */
-.header {
-  background: linear-gradient(135deg, #9370DB, #6A5ACD);
-  padding: 25px 30px;
-  color: white;
+.header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+  pointer-events: none;
 }
 
 h1 {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: 700;
   margin: 0;
-  letter-spacing: 0.5px;
+  position: relative;
 }
 
-/* Form with clean, simple inputs */
-.task-form {
-  padding: 20px 30px;
-  border-bottom: 1px solid #f0e6ff;
+/* Form styling */
+.form-container {
+  padding: 20px 25px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 form input,
 form textarea {
-  display: block;
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px 16px;
   margin-bottom: 15px;
-  border: 1px solid #e2d8f3;
-  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
   font-size: 15px;
-  transition: border 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 form input:focus,
 form textarea:focus {
   outline: none;
-  border-color: #9370DB;
+  border-color: #3a86ff;
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.15);
 }
 
 /* Unique button style */
-button {
-  background-color: #9370DB;
+.add-task-btn {
+  background-color: #3a86ff;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-task-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.add-task-btn:hover::after {
+  transform: translateX(100%);
+}
+
+.add-task-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Distinctive filter design */
+.filters {
+  display: flex;
+  padding: 15px 25px;
+  gap: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filter-btn {
+  flex: 1;
+  background-color: #edf2f7;
+  color: #4a5568;
+  border: none;
+  padding: 8px 0;
+  border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: #6A5ACD;
-  transform: translateY(-2px);
+.filter-btn:hover {
+  background-color: #e2e8f0;
 }
 
-/* Simple filter design */
-.filters {
-  padding: 15px 30px;
-  display: flex;
-  gap: 10px;
-}
-
-.filters button {
-  background-color: #f0e6ff;
-  color: #6A5ACD;
-  font-size: 14px;
-  padding: 8px 15px;
-}
-
-.filters button.active {
-  background-color: #9370DB;
+.filter-btn.active {
+  background-color: #3a86ff;
   color: white;
 }
 
-/* Task list with subtle animation */
-.tasks {
-  padding: 10px 30px 30px;
+/* Task list with unique styling */
+.task-list {
+  padding: 20px 25px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
 }
 
 .task-item {
-  background-color: #fcfaff;
-  padding: 15px;
-  border-radius: 8px;
+  background-color: #f8fafc;
   margin-bottom: 12px;
+  border-radius: 12px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 3px solid transparent;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
 .task-item:hover {
-  border-left-color: #9370DB;
-  transform: translateX(5px);
+  border-color: #3a86ff;
+  transform: scale(1.02);
 }
 
-/* Unique completed task style */
 .task-item.completed {
-  background-color: #f0e6ff;
-  opacity: 0.8;
+  background-color: #ebf8ff;
+  border: 1px solid #bee3f8;
 }
 
-.task-item.completed h3 {
+.task-item.completed .task-title {
   text-decoration: line-through;
-  color: #9370DB;
+  color: #718096;
 }
 
-.task-info h3 {
-  margin: 0;
-  font-size: 16px;
+.task-content {
+  flex: 1;
+}
+
+.task-title {
   font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 4px;
 }
 
-.task-info p {
-  margin: 5px 0 0;
+.task-description {
   font-size: 14px;
-  color: #6b7280;
+  color: #718096;
 }
 
-/* Action buttons with unique styling */
-.task-item button {
-  padding: 6px 12px;
-  font-size: 13px;
+/* Action buttons with distinctive styling */
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.task-btn {
+  border: none;
   background-color: transparent;
-  color: #9370DB;
-  border: 1px solid #9370DB;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.task-item button:hover {
-  background-color: #9370DB;
+.complete-btn {
+  background-color: #c6f6d5;
+  color: #38a169;
+}
+
+.complete-btn:hover {
+  background-color: #38a169;
   color: white;
 }
 
-.task-item button.delete {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
+.delete-btn {
+  background-color: #fed7d7;
+  color: #e53e3e;
 }
 
-.task-item button.delete:hover {
-  background-color: #ff6b6b;
+.delete-btn:hover {
+  background-color: #e53e3e;
   color: white;
 }
 
 /* Empty state */
-.empty-tasks {
+.empty-state {
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
   color: #a0aec0;
+  font-style: italic;
 }
 
-/* Simple responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 600px) {
-  .header, .task-form, .filters, .tasks {
-    padding-left: 20px;
-    padding-right: 20px;
+  .container {
+    width: 95%;
+    margin: 20px auto;
   }
   
-  .filters {
-    flex-wrap: wrap;
+  .header, .form-container, .filters, .task-list {
+    padding: 15px 20px;
+  }
+  
+  .task-item {
+    padding: 12px;
   }
 }
