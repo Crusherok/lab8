@@ -1,7 +1,7 @@
-/* Minimal base styles */
+/* Base styles with beautiful aesthetics */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
+  background: linear-gradient(135deg, #f6f9fc 0%, #e9f2fa 100%);
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -12,142 +12,162 @@ body {
 
 .container {
   width: 90%;
-  max-width: 550px;
+  max-width: 520px;
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(34, 66, 117, 0.12), 
+              0 0 0 1px rgba(89, 126, 182, 0.08);
   overflow: hidden;
+  animation: fadeIn 0.8s ease;
 }
 
-/* Header */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Beautiful gradient header */
 h1 {
-  background: #4361ee;
+  background: linear-gradient(to right, #3a7bd5, #3a6073);
   color: white;
   margin: 0;
-  padding: 20px;
-  font-size: 24px;
+  padding: 24px 20px;
+  font-size: 26px;
   text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Form */
+/* Elegant form styling */
 form {
-  padding: 20px;
-  border-bottom: 1px solid #edf2f7;
+  padding: 24px 20px;
+  border-bottom: 1px solid #f0f5fa;
 }
 
 input, textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid #e1e8ed;
+  border-radius: 10px;
   font-size: 15px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: #4361ee;
-  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+  border-color: #3a7bd5;
+  box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.15);
 }
 
-/* Interactive buttons */
-button {
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
+/* Beautiful interactive button */
 .add-btn {
   width: 100%;
-  background: #4361ee;
+  background: linear-gradient(to right, #3a7bd5, #3a6073);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 14px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 16px;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .add-btn:hover {
-  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(58, 123, 213, 0.4);
 }
 
-.add-btn::after {
+.add-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(58, 123, 213, 0.3);
+}
+
+.add-btn::before {
   content: "";
   position: absolute;
   top: -50%;
-  left: -60%;
-  width: 20px;
+  left: -50%;
+  width: 200%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(30deg);
-  transition: all 0.6s;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.8s ease;
+  opacity: 0;
 }
 
-.add-btn:hover::after {
-  left: 120%;
+.add-btn:hover::before {
+  left: 100%;
+  opacity: 1;
 }
 
-/* Filters */
+/* Elegant filters */
 .filters {
   display: flex;
-  padding: 15px;
+  padding: 16px 20px;
   gap: 10px;
+  background: #fafbfd;
 }
 
 .filter-btn {
   flex: 1;
-  background: #edf2f7;
-  color: #4a5568;
+  background: #f0f5fa;
+  color: #5a7184;
   border: none;
-  padding: 8px 0;
-  border-radius: 8px;
+  padding: 10px 0;
+  border-radius: 10px;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .filter-btn:hover {
-  background: #e2e8f0;
+  background: #e5eef7;
+  transform: translateY(-2px);
 }
 
 .filter-btn.active {
-  background: #4361ee;
+  background: linear-gradient(to right, #3a7bd5, #3a6073);
   color: white;
+  box-shadow: 0 5px 15px rgba(58, 123, 213, 0.3);
 }
 
-/* Task list */
+/* Beautiful task list */
 .tasks {
-  padding: 15px;
+  padding: 20px;
 }
 
 .task {
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 10px;
+  background: #fafbfd;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .task:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  border-color: #e5eef7;
+  box-shadow: 0 10px 20px rgba(89, 126, 182, 0.08);
 }
 
 .task.completed {
-  background: #f0f9ff;
-  border-left: 3px solid #4361ee;
+  background: linear-gradient(to right, #f0f5fa, #e5eef7);
+  border-left: 3px solid #3a7bd5;
 }
 
 .task.completed h3 {
   text-decoration: line-through;
-  color: #718096;
+  color: #8fa3b7;
 }
 
 .task-info {
@@ -157,61 +177,70 @@ button:active {
 .task-info h3 {
   margin: 0;
   font-size: 16px;
+  color: #334e68;
 }
 
 .task-info p {
   margin: 5px 0 0;
   font-size: 14px;
-  color: #718096;
+  color: #829ab1;
 }
 
-/* Action buttons */
+/* Beautiful action buttons */
 .task-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .task-btn {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .complete-btn {
-  background: #c6f6d5;
+  background: linear-gradient(145deg, #e3f4ec, #c6f6d5);
   color: #38a169;
 }
 
 .complete-btn:hover {
   background: #38a169;
   color: white;
+  transform: rotate(360deg);
+  box-shadow: 0 5px 15px rgba(56, 161, 105, 0.3);
 }
 
 .delete-btn {
-  background: #fed7d7;
+  background: linear-gradient(145deg, #feebeb, #fed7d7);
   color: #e53e3e;
 }
 
 .delete-btn:hover {
   background: #e53e3e;
   color: white;
+  transform: rotate(360deg);
+  box-shadow: 0 5px 15px rgba(229, 62, 62, 0.3);
 }
 
-/* Empty state */
+/* Empty state with style */
 .empty {
   text-align: center;
   padding: 30px 0;
-  color: #a0aec0;
+  color: #829ab1;
+  font-style: italic;
 }
 
-/* Ensure responsiveness */
+/* Responsive adjustments */
 @media (max-width: 500px) {
   .container {
     width: 95%;
+    margin: 15px;
   }
 }
