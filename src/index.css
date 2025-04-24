@@ -1,106 +1,179 @@
+/* Base styles with a unique color scheme */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
+  background-color: #f7f3f9;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  color: #2d3748;
 }
 
 .container {
-  max-width: 700px;
-  margin: 40px auto;
+  max-width: 650px;
+  margin: 0 auto;
   background-color: #ffffff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(147, 112, 219, 0.15);
+  overflow: hidden;
+}
+
+/* Header with unique gradient */
+.header {
+  background: linear-gradient(135deg, #9370DB, #6A5ACD);
+  padding: 25px 30px;
+  color: white;
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
-  margin-bottom: 20px;
-  color: #1f2937;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Form with clean, simple inputs */
+.task-form {
+  padding: 20px 30px;
+  border-bottom: 1px solid #f0e6ff;
 }
 
 form input,
-form textarea,
-form button {
+form textarea {
   display: block;
   width: 100%;
-  margin-bottom: 12px;
-  padding: 10px 14px;
-  font-size: 16px;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #e2d8f3;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
-  box-sizing: border-box;
+  font-size: 15px;
+  transition: border 0.2s ease;
 }
 
-form button {
-  background-color: #2563eb;
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #9370DB;
+}
+
+/* Unique button style */
+button {
+  background-color: #9370DB;
   color: white;
   border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-form button:hover {
-  background-color: #1d4ed8;
+button:hover {
+  background-color: #6A5ACD;
+  transform: translateY(-2px);
+}
+
+/* Simple filter design */
+.filters {
+  padding: 15px 30px;
+  display: flex;
+  gap: 10px;
 }
 
 .filters button {
-  margin-right: 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #e5e7eb;
-  color: #374151;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #f0e6ff;
+  color: #6A5ACD;
+  font-size: 14px;
+  padding: 8px 15px;
 }
 
-.filters button:hover {
-  background-color: #d1d5db;
+.filters button.active {
+  background-color: #9370DB;
+  color: white;
+}
+
+/* Task list with subtle animation */
+.tasks {
+  padding: 10px 30px 30px;
 }
 
 .task-item {
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  padding: 16px;
-  border-radius: 10px;
+  background-color: #fcfaff;
+  padding: 15px;
+  border-radius: 8px;
   margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
 }
 
+.task-item:hover {
+  border-left-color: #9370DB;
+  transform: translateX(5px);
+}
+
+/* Unique completed task style */
 .task-item.completed {
-  background-color: #dcfce7;
+  background-color: #f0e6ff;
+  opacity: 0.8;
+}
+
+.task-item.completed h3 {
   text-decoration: line-through;
+  color: #9370DB;
 }
 
 .task-info h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  color: #111827;
 }
 
 .task-info p {
-  margin: 4px 0;
+  margin: 5px 0 0;
   font-size: 14px;
   color: #6b7280;
 }
 
+/* Action buttons with unique styling */
 .task-item button {
-  background-color: #10b981;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 6px 12px;
+  font-size: 13px;
+  background-color: transparent;
+  color: #9370DB;
+  border: 1px solid #9370DB;
 }
 
 .task-item button:hover {
-  background-color: #059669;
+  background-color: #9370DB;
+  color: white;
+}
+
+.task-item button.delete {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.task-item button.delete:hover {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+/* Empty state */
+.empty-tasks {
+  text-align: center;
+  padding: 30px 0;
+  color: #a0aec0;
+}
+
+/* Simple responsive adjustments */
+@media (max-width: 600px) {
+  .header, .task-form, .filters, .tasks {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .filters {
+    flex-wrap: wrap;
+  }
 }
